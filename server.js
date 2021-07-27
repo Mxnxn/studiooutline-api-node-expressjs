@@ -25,6 +25,10 @@ mongoose
         console.log(`Error connecting Mongodb :`, err.message);
     });
 
+app.get("/contactme", (req, res) => {
+    return res.json({ msg: "Mxnxn Inc." });
+});
+
 app.post("/login", async (req, res) => {
     try {
         if (!req.body.username || !req.body.password) {
