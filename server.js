@@ -36,7 +36,7 @@ app.post("/login", async (req, res) => {
         }
         const mUser = await User.findOne({ username: req.body.username, password: req.body.password });
         if (mUser) {
-            const token = jwt.sign({ username: req.body.username }, process.env.JWT_KEY, { expiresIn: 60 });
+            const token = jwt.sign({ username: req.body.username }, process.env.JWT_KEY, { expiresIn: "7d" });
             return res.json({
                 code: 200,
                 data: token,
@@ -72,7 +72,7 @@ app.post("/gentoken", async (req, res) => {
         }
         const mUser = await User.findOne({ username: req.body.username, password: req.body.password });
         if (mUser) {
-            const token = jwt.sign({ username: req.body.username }, process.env.JWT_KEY, { expiresIn: 180 });
+            const token = jwt.sign({ username: req.body.username }, process.env.JWT_KEY, { expiresIn: "7d" });
             return res.json({
                 code: 200,
                 data: token,
